@@ -21,7 +21,8 @@
         </table>
     </div>
     <div>
-        <a href="{{ route('usuaris2') }}">Back</a>
+        <a href="">ADD Centre</a>
+        <a href="{{ route('usuaris2') }}">ADMIN VISTA</a>
     </div>
 </body>
 </html>
