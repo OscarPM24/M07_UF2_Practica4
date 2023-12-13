@@ -20,7 +20,7 @@ Route::get("/", function() {
 });
 
 // Controlador
-Route::prefix("oscar")->group(function () {
+Route::prefix("p4")->group(function () {
     // Signin
     Route::get('/signin', [SignController::class, 'signin'])->name('signin');
     // Signup
