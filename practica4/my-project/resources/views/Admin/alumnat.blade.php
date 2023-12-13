@@ -21,7 +21,7 @@
         </table>
     </div>
     <div>
-        <a href="{{ route('usuaris2') }}">Back</a>
+        <a href="{{ route('createAlumnat') }}">ADD Alumne</a>  <a href="{{ route('usuaris2') }}">Back</a>
     </div>
 
 </body>

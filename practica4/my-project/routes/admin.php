@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
-
+use App\Http\Controllers\Admin\AlumnatController;
 
     Route::middleware(['admin_db'])->group(function() {
         Route::post('/usuaris', [AdminController::class, 'usuaris'])->name('usuaris');
@@ -11,9 +11,13 @@ use App\Http\Controllers\Admin\AdminController;
 
         Route::get('/centres', [AdminController::class, 'centres'])->name('centres');
 
-        Route::get('/alumnat', [AdminController::class, 'alumnat'])->name('alumnat');
+        Route::get('/alumnat', [AlumnatController::class, 'index'])->name('alumnat');
 
         Route::get('/professorat', [AdminController::class, 'professorat'])->name('professorat');
+
+        Route::get('/addAlumnat', [AlumnatController::class, 'create'])->name('createAlumnat');
+
+        Route::post('/alumnat', [AlumnatController::class, 'store'])->name('alumnatCreate');
     });
 
 
