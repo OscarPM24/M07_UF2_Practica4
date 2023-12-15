@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Alumnat;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class AlumnatController extends Controller
 {
@@ -14,9 +13,9 @@ class AlumnatController extends Controller
      */
     public function index()
     {
-        $alumnat = DB::table('alumnat')->get();
+        $alumnat = Alumnat::all();
  
-        return view('Admin.alumnat', ['alumnat' => $alumnat]);
+        return view('Admin.alumnat')->with('alumnat', $alumnat); 
     }
 
     /**
@@ -41,7 +40,8 @@ class AlumnatController extends Controller
         // Guardem la info de l'alumne a la taula de la bbdd
         $alumnat->save();
 
-        return view('Admin.alumnat');
+        // Redirecció a la funció index() 
+        return redirect()->action([AlumnatController::class, 'index']);
     }
 
     /**
@@ -55,24 +55,40 @@ class AlumnatController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Alumnat $alumnat)
+    public function edit($id)
     {
-        //
+        $alumne = Alumnat::where('id', $id)->first();
+
+        return view('Admin.editAlumnat')->with('alumne', $alumne);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Alumnat $alumnat)
+    public function update(Request $request)
     {
-        //
+        $alumnat = Alumnat::find();
+
+        // Assignació de dades del formulari a variables
+        $alumnat->name = $request->input('name');
+        $alumnat->surname = $request->input('surname');
+        $alumnat->email = $request->input('email');
+
+        // Guardem la info de l'alumne a la taula de la bbdd
+        $alumnat->save();
+
+        // Redirecció a la funció index() 
+        return redirect()->action([AlumnatController::class, 'index']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Alumnat $alumnat)
+    public function destroy($id)
     {
-        //
+        Alumnat::destroy($id);
+
+         // Redirecció a la funció index() 
+         return redirect()->action([AlumnatController::class, 'index']);
     }
 }

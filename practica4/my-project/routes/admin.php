@@ -17,7 +17,13 @@ use App\Http\Controllers\Admin\AlumnatController;
 
         Route::get('/addAlumnat', [AlumnatController::class, 'create'])->name('createAlumnat');
 
-        Route::post('/alumnat', [AlumnatController::class, 'store'])->name('alumnatCreate');
+        Route::get('/editAlumnat/{id}', [AlumnatController::class, 'edit'])->name('editAlumnat');
+
+        Route::post('/alumnat', [AlumnatController::class, 'store'])->name('storeAlumnat');
+
+        Route::post('/alumnat', [AlumnatController::class, 'update'])->name('updateAlumnat');
+
+        Route::get('/deleteAlumnat/{id}', [AlumnatController::class, 'destroy'])->name('deleteAlumnat');
     });
 
 

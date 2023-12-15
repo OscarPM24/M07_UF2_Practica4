@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alumnat</title>
+    <style>
+        td{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <div>
         <table>
-            <th>
-                <td>ID</td><td>Name</td><td>Surname</td><td>Rol</td><td>Email</td>
-            </th>
+            <tr>
+                <th>ID</th><th>Name</th><th>Surname</th><th>Email</th>
+            </tr>
             @foreach ($alumnat as $alumne)
                 <tr>
-                    @foreach ($alumne as $valor)
-                    <td>{{ $valor }}</td>
-                    @endforeach
+                    <td>{{ $alumne->id }}</td>
+                    <td>{{ $alumne->name }}</td>
+                    <td>{{ $alumne->surname }}</td>
+                    <td>{{ $alumne->email }}</td>
+                    <td><a href="{{ route('editAlumnat', ['id' => $alumne->id]) }}">EDIT</a></td>
+                    <td><a href="{{ route('deleteAlumnat', ['id' => $alumne->id]) }}">DELETE</a></td>
                 </tr>
             @endforeach
         </table>

@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creació de Alumne</title>
+    <title>Modificació de Alumne</title>
 </head>
 <body>
-    <h1>Creació de Alumne</h1>
+    <h1>Modificació de Alumne</h1>
     <div>
-    <form method="POST" action="{{ route('storeAlumnat') }}">
+    <form method="POST" action="{{ route('updateAlumnat') }}">
             @csrf
-
             <div>
                 <label>Name</label><br>
-                <input type="text" name="name" required>
+                <input type="text" name="name" value="{{ $alumne->name }}" required>
             </div>
             <div>
                 <label>Surname</label><br>
-                <input type="text" name="surname" required>
+                <input type="text" name="surname" value="{{ $alumne->surname }}" required>
             </div>
             <div>
                 <label>Email</label><br>
-                <input type="text" name="email"  required>
+                <input type="text" name="email" value="{{ $alumne->email }}" required>
             </div>
             <div>
                 <button type="submit" name="enviar">Enviar</button>
