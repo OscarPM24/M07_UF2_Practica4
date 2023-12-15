@@ -9,26 +9,26 @@
     
 <div>
         <h1>
-            Formulari creació centre
+            Formulari edició centre
         </h1>
-        <form method="POST" action="{{ route('storeCentre') }}">
+        <form method="POST" action="{{ route('updateCentre') }}">
             @csrf
 
             <div>
                 <label>Name</label><br>
-                <input type="text" name="name" required>
+                <input type="text" name="name" value="{{$centre->name}}" required>
             </div>
             <div>
                 <label>Adress</label><br>
-                <input type="text" name="address" required>
+                <input type="text" name="address" value="{{$centre->address}}" required>
             </div>
             <div>
                 <label>CP</label><br>
-                <input type="text" name="cp" required>
+                <input type="text" name="cp" value="{{$centre->cp}}" required>
             </div>
             <div>
                 <label>City</label><br>
-                <input type="text" name="city" required>
+                <input type="text" name="city" value="{{$centre->city}}" required>
             </div>
             <div>
                 <button type="submit" name="enviar">Enviar</button>

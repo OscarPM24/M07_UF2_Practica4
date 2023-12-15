@@ -8,20 +8,28 @@
 <body>
     <div>
         <table>
-            <th>
-            <td>ID</td><td>Name</td><td>Address</td><td>CP</td><td>City</td>
-            </th>
+            <tr>
+            <th>ID</th><th>Name</th><th>Address</th><th>CP</th><th>City</th>
+            </tr>
             @foreach ($centres as $centre)
                 <tr>
-                    @foreach ($centre as $valor)
-                    <td>{{ $valor }}</td>
-                    @endforeach
+                    <td>{{$centre->id}}</td>
+                    <td>{{$centre->name}}</td>
+                    <td>{{$centre->address}}</td>
+                    <td>{{$centre->cp}}</td>
+                    <td>{{$centre->city}}</td>
+                    <td>
+                    <a href="{{ route('destroyCentre', ['id' => $centre->id]) }}">DELETE</a>
+                    </td>
+                    <td>
+                    <a href="{{ route('editCentre', ['id' => $centre->id]) }}">EDIT</a>
+                    </td>
                 </tr>
             @endforeach
         </table>
     </div>
     <div>
-        <a href="">ADD Centre</a>
+        <a href="{{ route('createCentre') }}">ADD Centre</a>
         <a href="{{ route('usuaris2') }}">ADMIN VISTA</a>
     </div>
 </body>
