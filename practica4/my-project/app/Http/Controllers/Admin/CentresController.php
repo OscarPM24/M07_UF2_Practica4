@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Centre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CentresController extends Controller
 {
@@ -13,7 +14,10 @@ class CentresController extends Controller
      */
     public function index()
     {
-        //
+        $centres = Centre::all();
+
+        return view('Admin.centres')->with('centres', $centres);
+
     }
 
     /**
@@ -21,7 +25,7 @@ class CentresController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.createCentre');
     }
 
     /**
@@ -29,7 +33,16 @@ class CentresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $centre = new Centre();
+
+        $centre->name = $request->input('name');
+        $centre->address = $request->input('address');
+        $centre->cp = $request->input('cp');
+        $centre->city = $request->input('city');
+
+        $centre->save();
+
+        return redirect()->route('indexCentres');
     }
 
     /**
@@ -37,7 +50,7 @@ class CentresController extends Controller
      */
     public function show(Centre $centre)
     {
-        //
+        // mostra les dades cercades per id
     }
 
     /**
@@ -45,7 +58,8 @@ class CentresController extends Controller
      */
     public function edit(Centre $centre)
     {
-        //
+        // form view para editar
+        return view ('Admin.editCentre')->with('centre', $centre);
     }
 
     /**
@@ -53,14 +67,18 @@ class CentresController extends Controller
      */
     public function update(Request $request, Centre $centre)
     {
-        //
+        // actualitza les dades a la bd i retorna a index
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Centre $centre)
+    public function destroy($id)
     {
-        //
+        // esborra de la taula i retorna index
+
+        Centre::destroy($id);
+
+        return redirect()->route('indexCentres');
     }
 }
