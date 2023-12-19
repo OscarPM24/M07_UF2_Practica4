@@ -11,19 +11,52 @@ use App\Http\Controllers\Admin\AlumnatController;
 
         Route::get('/centres', [AdminController::class, 'centres'])->name('centres');
 
-        Route::get('/alumnat', [AlumnatController::class, 'index'])->name('alumnat');
+        Route::get('/alumnatOld', [AdminController::class, 'alumnat'])->name('alumnatOld');
 
         Route::get('/professorat', [AdminController::class, 'professorat'])->name('professorat');
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        Route::get('/alumnat', [AlumnatController::class, 'index'])->name('alumnat');
 
         Route::get('/addAlumnat', [AlumnatController::class, 'create'])->name('createAlumnat');
 
         Route::get('/editAlumnat/{id}', [AlumnatController::class, 'edit'])->name('editAlumnat');
 
-        Route::post('/alumnat', [AlumnatController::class, 'store'])->name('storeAlumnat');
+        Route::post('/storeAlumnat', [AlumnatController::class, 'store'])->name('storeAlumnat');
 
-        Route::post('/alumnat', [AlumnatController::class, 'update'])->name('updateAlumnat');
+        Route::post('/updateAlumnat/{id}', [AlumnatController::class, 'update'])->name('updateAlumnat');
 
         Route::get('/deleteAlumnat/{id}', [AlumnatController::class, 'destroy'])->name('deleteAlumnat');
+
+        Route::get('/showAlumnat', [AlumnatController::class, 'show'])->name('showAlumnat');
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     });
 
 
