@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>BENVINGUT/DA ADMIN</h1>
-    <p><a href="{{ route('indexCentres') }}">CENTRES</a><a href="{{ route('professorat') }}">PROFESSORAT</a><a href="{{ route('alumnat') }}">ALUMNAT</a></p>
+    <p><a href="{{ route('indexCentres') }}">CENTRES  </a><a href="{{ route('professorat') }}">PROFESSORAT  </a><a href="{{ route('alumnat') }}">ALUMNAT</a></p>
     <p><a href="{{ route('signin')}} ">Log out</a></p>
 
 </body>
