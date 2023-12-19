@@ -34,6 +34,7 @@
                 <button type="submit" name="enviar">Enviar</button>
             </div>
         </form>
+        <a href="{{ route('indexCentres') }}">BACK</a>
     </div>
 </body>
 </html>

@@ -11,7 +11,7 @@
         <h1>
             Formulari edició centre
         </h1>
-        <form method="POST" action="{{ route('updateCentre') }}">
+        <form method="POST" action="{{ route('updateCentre', ['id' => $centre->id]) }}">
             @csrf
 
             <div>
@@ -31,7 +31,8 @@
                 <input type="text" name="city" value="{{$centre->city}}" required>
             </div>
             <div>
-                <button type="submit" name="enviar">Enviar</button>
+                <button type="submit" name="modify">Modify</button><br>
+                <a href="{{ route('indexCentres') }}">BACK</a>
             </div>
         </form>
     </div>
