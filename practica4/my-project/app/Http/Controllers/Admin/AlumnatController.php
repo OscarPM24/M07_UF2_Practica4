@@ -47,9 +47,11 @@ class AlumnatController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Alumnat $alumnat)
+    public function show(Request $request)
     {
-        //
+        $alumne = Alumnat::find($request->input('id'));
+        
+        return view('Admin.showAlumnat')->with('alumne', $alumne);
     }
 
     /**
@@ -57,7 +59,7 @@ class AlumnatController extends Controller
      */
     public function edit($id)
     {
-        $alumne = Alumnat::where('id', $id)->first();
+        $alumne = Alumnat::find($id);
 
         return view('Admin.editAlumnat')->with('alumne', $alumne);
     }
@@ -65,9 +67,9 @@ class AlumnatController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $alumnat = Alumnat::find();
+        $alumnat = Alumnat::find($id);
 
         // Assignació de dades del formulari a variables
         $alumnat->name = $request->input('name');
