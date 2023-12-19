@@ -27,6 +27,7 @@
                 <button type="submit" name="enviar">Enviar</button>
             </div>
         </form>
+        <a href="{{ route('alumnat') }}">Back</a>
     </div>
 </body>
 </html>

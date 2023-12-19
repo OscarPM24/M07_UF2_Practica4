@@ -8,7 +8,7 @@
 <body>
     <h1>Modificació de Alumne</h1>
     <div>
-    <form method="POST" action="{{ route('updateAlumnat') }}">
+        <form method="POST" action="{{ route('updateAlumnat', ['id' => $alumne->id]) }}">
             @csrf
             <div>
                 <label>Name</label><br>
@@ -26,6 +26,7 @@
                 <button type="submit" name="enviar">Enviar</button>
             </div>
         </form>
+        <a href="{{ route('alumnat') }}">Back</a>
     </div>
 </body>
 </html>

@@ -12,6 +12,13 @@
 </head>
 <body>
     <div>
+        <p><strong>Cercar per ID</strong></p>
+        <form method="GET" action="{{ route('showAlumnat') }}">
+            <input type="text" name="id" required>
+            <button type="submit" name="cercar">Cercar</button>
+        </form>
+    </div>
+    <div>
         <table>
             <tr>
                 <th>ID</th><th>Name</th><th>Surname</th><th>Email</th>
