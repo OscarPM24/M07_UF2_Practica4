@@ -8,3 +8,5 @@
 [vídeo pràctica 2](https://drive.google.com/file/d/1M3hCQFDe7UAkIoxoVdDoP7FDpWn0fngv/view?usp=sharing)
 
 [vídeo pràctica 3](https://drive.google.com/file/d/1DYvF7u8YNkly1NlZmjTC4igaDTVfF4eZ/view?usp=sharing)
+
+[vídeo pràctica 4](https://drive.google.com/file/d/1DzhMCrA04xUcRPgDs4-mrJMkJY-nuUTP/view?usp=sharing)
