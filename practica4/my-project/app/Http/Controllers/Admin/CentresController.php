@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Centre;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class CentresController extends Controller
 {
@@ -48,9 +47,13 @@ class CentresController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Centre $centre)
+    public function show(Request $request)
     {
         // mostra les dades cercades per id
+        $centre = Centre::find($request->input('result'));
+
+        if($centre == null) { return view('Admin.error'); }
+        return view('Admin.showCentre')->with('centre', $centre);
     }
 
     /**
@@ -65,9 +68,18 @@ class CentresController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Centre $centre)
+    public function update(Request $request, $id)
     {
         // actualitza les dades a la bd i retorna a index
+        $update = Centre::find($id);
+        $update->name = $request->input('name');
+        $update->address = $request->input('address');
+        $update->cp = $request->input('cp');
+        $update->city = $request->input('city');
+
+        $update->save();
+        
+        return redirect()->route('indexCentres');
     }
 
     /**
@@ -77,7 +89,9 @@ class CentresController extends Controller
     {
         // esborra de la taula i retorna index
 
-        Centre::destroy($id);
+        $centre = Centre::find($id);
+
+        $centre->delete();
 
         return redirect()->route('indexCentres');
     }
