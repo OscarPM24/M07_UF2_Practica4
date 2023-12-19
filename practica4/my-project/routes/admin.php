@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\CentresController;
 use Illuminate\Support\Facades\Route;
+
+
 use App\Http\Controllers\Admin\AdminController;
 
 
@@ -29,6 +31,34 @@ use App\Http\Controllers\Admin\AdminController;
         Route::post('/updateCentre/{id}', [CentresController::class, 'update'])->name('updateCentre');
 
         Route::get('/destroyCentre/{id}', [CentresController::class, 'destroy'])->name('destroyCentre');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     });
 
 
